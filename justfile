@@ -20,19 +20,24 @@ install nix_pkg:
 install_all:
     winget install --id=Casey.Just  -e
     just install junegunn.fzf
+    just install astral-sh.uv
     just install uutils.coreutils
-    
+
 [windows]
 list:
-    winget list
+    winget list | sort
 
 [linux]
-list
+list:
     nix-env -q
 
 [windows]
 search pkg:
     winget search {{pkg}}
+
+[windows]
+upgrade pkg:
+    winget upgrade {{pkg}}
 
 
 
